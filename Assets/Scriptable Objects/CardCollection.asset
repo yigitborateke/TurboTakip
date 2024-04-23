@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46409a20990cb514095064eff582c45c, type: 3}
+  m_Name: CardCollection
+  m_EditorClassIdentifier: 
+  cards:
+  - cardName: Move 2 Squares Card
+    fuelCost: 2
+    movement: 2
+    description: Move 2 Squares
+    cardSprite: {fileID: 21300000, guid: 8565cd7e09e3a0942948ff14cde7440d, type: 3}
+    type: 0
+  - cardName: Move 3 Squares Card
+    fuelCost: 3
+    movement: 3
+    description: Move 3 Squares
+    cardSprite: {fileID: 0}
+    type: 0
+  - cardName: Move 4 Squares Card
+    fuelCost: 4
+    movement: 4
+    description: Move 4 Squares
+    cardSprite: {fileID: 0}
+    type: 0
+  - cardName: Move 5 Squares Card
+    fuelCost: 5
+    movement: 5
+    description: Move 5 Squares
+    cardSprite: {fileID: 0}
+    type: 0
+  - cardName: Acceleration Card
+    fuelCost: 10
+    movement: 0
+    description: 'Speed up instantly and move one step ahead of your opponent '
+    cardSprite: {fileID: 0}
+    type: 1
+  - cardName: Speed Blocker Card
+    fuelCost: 4
+    movement: 0
+    description: 'Place an obstacle on your opponent''s path. When they land on it,
+      they must wait for one turn '
+    cardSprite: {fileID: 0}
+    type: 2
+  - cardName: Bomb Card
+    fuelCost: 4
+    movement: 0
+    description: 'Place a bomb on your opponent''s path and make them stop where
+      the bomb explodes '
+    cardSprite: {fileID: 0}
+    type: 3
+  - cardName: Destroy Card Card
+    fuelCost: 4
+    movement: 0
+    description: 'Make your opponent lose a random card from their hand '
+    cardSprite: {fileID: 0}
+    type: 4
+  - cardName: Speed Control Card
+    fuelCost: 2
+    movement: 0
+    description: 'Prevent your opponent from passing the square you are on '
+    cardSprite: {fileID: 0}
+    type: 5
+  - cardName: Protection Card
+    fuelCost: 4
+    movement: 0
+    description: 'Neutralize the card your opponent uses against you '
+    cardSprite: {fileID: 0}
+    type: 6
+  - cardName: Protectivity Card
+    fuelCost: 0
+    movement: 0
+    description: 'Use the movement card without spending fuel '
+    cardSprite: {fileID: 0}
+    type: 7
+  - cardName: Wrong Way Card
+    fuelCost: 8
+    movement: 0
+    description: 'Reverse your opponent''s next move '
+    cardSprite: {fileID: 0}
+    type: 8
+  - cardName: Engine Fault Card
+    fuelCost: 0
+    movement: 0
+    description: 'Stay in your current position due to engine failure '
+    cardSprite: {fileID: 0}
+    type: 9
+  - cardName: Tire Blowout Card
+    fuelCost: 0
+    movement: 0
+    description: 
+    cardSprite: {fileID: 0}
+    type: 10
+  - cardName: 007 Card
+    fuelCost: 16
+    movement: 0
+    description: 'Shoot your opponent from behind. Shoot your opponent if they are
+      within 10 squares in front of you and keep them immobile for 2 turns '
+    cardSprite: {fileID: 0}
+    type: 11
+  - cardName: Double Card
+    fuelCost: 2
+    movement: 0
+    description: 'Advance any action card you want twice as much, without changing
+      its cost '
+    cardSprite: {fileID: 0}
+    type: 12
