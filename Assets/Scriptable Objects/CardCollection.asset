@@ -17,99 +17,99 @@ MonoBehaviour:
     fuelCost: 2
     movement: 2
     description: Move 2 Squares
-    cardSprite: {fileID: 21300000, guid: 8565cd7e09e3a0942948ff14cde7440d, type: 3}
+    cardSprite: {fileID: 21300000, guid: f4f8ccb1d5bd1534caef014fd89f7b58, type: 3}
     type: 0
   - cardName: Move 3 Squares Card
     fuelCost: 3
     movement: 3
     description: Move 3 Squares
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: 327c205862e4aee49b9f0b8007d558ff, type: 3}
     type: 0
   - cardName: Move 4 Squares Card
     fuelCost: 4
     movement: 4
     description: Move 4 Squares
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: da0aeb38b3ba47a4ea932c3fc5a78a6b, type: 3}
     type: 0
   - cardName: Move 5 Squares Card
     fuelCost: 5
     movement: 5
     description: Move 5 Squares
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: 7547cd98672f12c47abdc43880798bd5, type: 3}
     type: 0
   - cardName: Acceleration Card
     fuelCost: 10
     movement: 0
     description: 'Speed up instantly and move one step ahead of your opponent '
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: 2529dd15f1306b84f958c69ec3d78608, type: 3}
     type: 1
   - cardName: Speed Blocker Card
     fuelCost: 4
     movement: 0
     description: 'Place an obstacle on your opponent''s path. When they land on it,
       they must wait for one turn '
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: 2263a95cc6a2c874eb9865d67acdba2a, type: 3}
     type: 2
   - cardName: Bomb Card
     fuelCost: 4
     movement: 0
     description: 'Place a bomb on your opponent''s path and make them stop where
       the bomb explodes '
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: be0edd8e929a4b447982b556aed1c411, type: 3}
     type: 3
   - cardName: Destroy Card Card
     fuelCost: 4
     movement: 0
     description: 'Make your opponent lose a random card from their hand '
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: 818916be656764d46947a9b43c7f4701, type: 3}
     type: 4
   - cardName: Speed Control Card
     fuelCost: 2
     movement: 0
     description: 'Prevent your opponent from passing the square you are on '
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: 114c9406201303d4e98d3a708b9dffb6, type: 3}
     type: 5
   - cardName: Protection Card
     fuelCost: 4
     movement: 0
     description: 'Neutralize the card your opponent uses against you '
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: 17c14d18437598542967dfa803367cde, type: 3}
     type: 6
   - cardName: Protectivity Card
     fuelCost: 0
     movement: 0
     description: 'Use the movement card without spending fuel '
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: 23228187d5a9b2b4d8e0242d81a323d1, type: 3}
     type: 7
   - cardName: Wrong Way Card
     fuelCost: 8
     movement: 0
     description: 'Reverse your opponent''s next move '
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: cc68516d4dc59c74c952392a5ecfdaec, type: 3}
     type: 8
   - cardName: Engine Fault Card
     fuelCost: 0
     movement: 0
     description: 'Stay in your current position due to engine failure '
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: 0cb73aeda079a0840b5d505bcd7710ed, type: 3}
     type: 9
   - cardName: Tire Blowout Card
     fuelCost: 0
     movement: 0
     description: 
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: c8eafc8514aa8a44790cf253a1a59a95, type: 3}
     type: 10
   - cardName: 007 Card
     fuelCost: 16
     movement: 0
     description: 'Shoot your opponent from behind. Shoot your opponent if they are
       within 10 squares in front of you and keep them immobile for 2 turns '
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: f41107e9bfa37eb4c9637d7e2e0dcdad, type: 3}
     type: 11
   - cardName: Double Card
     fuelCost: 2
     movement: 0
     description: 'Advance any action card you want twice as much, without changing
       its cost '
-    cardSprite: {fileID: 0}
+    cardSprite: {fileID: 21300000, guid: b4dc26900fd2bae4d992d255d88244bd, type: 3}
     type: 12
