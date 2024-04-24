@@ -8,10 +8,14 @@ public class FuelManager : MonoBehaviour
 {
     public Slider fuelSlider; // Benzin slider'ı
     public TextMeshProUGUI warningMessage; // Uyarı mesajı için TextMeshPro elementi
-
+    public TextMeshProUGUI fuelText;
     private void Start()
     {
-        InitializeFuel(30); // Başlangıç yakıt miktarını ayarla
+        InitializeFuel(50); // Başlangıç yakıt miktarını ayarla
+    }
+    private void Update()
+    {
+        UpdateFuelText();
     }
 
     // Yakıtı başlangıç değeri ile başlat
@@ -42,5 +46,9 @@ public class FuelManager : MonoBehaviour
     private void ShowWarning(string message)
     {
         warningMessage.text = message;
+    }
+    void UpdateFuelText()
+    {
+        fuelText.text = "Fuel: " + fuelSlider.value.ToString("F0"); // Değeri yuvarlak sayı olarak gösterir
     }
 }

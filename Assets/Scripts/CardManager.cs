@@ -9,7 +9,7 @@ public class CardManager : MonoBehaviour
     public GameObject[] cardSlots; // CardsPanel altındaki kart slotları
     public Button playButton; // Play butonu
     public FuelManager fuelManager; // Yakıt yönetimi
-    public CardSelect cardSelect;
+    public List<CardSelect> cardSelects;
     void Start()
     {
         playButton.onClick.AddListener(PlaySelectedCards);
@@ -45,31 +45,40 @@ public class CardManager : MonoBehaviour
     public void PlaySelectedCards()
     {
         int totalFuelCost = CalculateTotalFuelCost();
-        List<CardCollection.Card> remainingCards = new List<CardCollection.Card>();
-
-        for (int i = 0; i < cardSlots.Length; i++)
+        if (fuelManager.ConsumeFuel(totalFuelCost))  // Yeterli yakıt varsa
         {
-            CardSelect cardSelect = cardSlots[i].GetComponent<CardSelect>();
-            if (cardSelect != null)
+            List<CardCollection.Card> remainingCards = new List<CardCollection.Card>();
+
+            for (int i = 0; i < cardSlots.Length; i++)
             {
-                if (cardSelect.isSelected)
+                CardSelect cardSelect = cardSlots[i].GetComponent<CardSelect>();
+                if (cardSelect != null && cardSelect.isSelected)
                 {
-                    // Seçili kartı yok et veya kullan
                     cardSelect.isSelected = false; // Kartın seçimini sıfırla
                     cardSelect.GetComponent<Image>().color = Color.white; // Varsayılan renge geri dön
                 }
-                else if (cardSlots[i].activeSelf)
+                else if (i < playerCards.playerCards.Count && cardSlots[i].activeSelf)
                 {
                     remainingCards.Add(playerCards.playerCards[i]); // Geriye kalan kartları listeye ekle
                 }
             }
-        }
 
-        playerCards.playerCards = remainingCards; // Oyuncu kartlarını güncelle
-        if (fuelManager.ConsumeFuel(totalFuelCost)) // Yeterli yakıt var mı kontrol et
-        {
-            RemoveSelectedCards(); // Yakıt yeterli ise kartları oynat
+            playerCards.playerCards = remainingCards; // Oyuncu kartlarını güncelle
             UpdateCardDisplay(); // Kart görünümünü güncelle
+        }
+        else
+        {
+            // Yakıt yetersiz ise tüm kartların seçimini kaldır
+            foreach (GameObject slot in cardSlots)
+            {
+                CardSelect cardSelect = slot.GetComponent<CardSelect>();
+                if (cardSelect != null)
+                {
+                    cardSelect.isSelected = false; // Seçimi kaldır
+                    cardSelect.GetComponent<Image>().color = Color.white; // Renk ayarı
+                }
+            }
+            // Hata mesajı veya uyarı gösterebilirsiniz.
         }
 
     }
@@ -77,11 +86,15 @@ public class CardManager : MonoBehaviour
     {
         int totalFuelCost = 0;
 
-        foreach (var card in playerCards.playerCards)
+        for (int i = 0; i < cardSlots.Length; i++)
         {
-            if (cardSelect.isSelected)
+            if (i < playerCards.playerCards.Count)
             {
-                totalFuelCost += card.fuelCost;  // card.fuelCost, her kartın maliyetini temsil eder.
+                CardSelect cardSelect = cardSlots[i].GetComponent<CardSelect>();
+                if (cardSelect != null && cardSelect.isSelected)
+                {
+                    totalFuelCost += playerCards.playerCards[i].fuelCost; // Her seçili kartın yakıt maliyetini topla
+                }
             }
         }
 
@@ -89,18 +102,21 @@ public class CardManager : MonoBehaviour
     }
     public void RemoveSelectedCards()
     {
-        // Yeni bir liste oluşturarak sadece seçilmemiş kartları bu listeye alıyoruz.
         List<CardCollection.Card> remainingCards = new List<CardCollection.Card>();
-        foreach (var card in playerCards.playerCards)
+
+        for (int i = 0; i < cardSlots.Length; i++)
         {
-            if (!cardSelect.isSelected)  // Kart seçili değilse, yeni listeye ekle
+            if (i < playerCards.playerCards.Count) // playerCards listesinin sınırlarını kontrol et
             {
-                remainingCards.Add(card);
+                CardSelect cardSelect = cardSlots[i].GetComponent<CardSelect>();
+                if (cardSelect != null && !cardSelect.isSelected)
+                {
+                    remainingCards.Add(playerCards.playerCards[i]); // Seçilmemiş kartları yeni listeye ekle
+                }
             }
         }
-        playerCards.playerCards = remainingCards;  // playerCards listesini, seçilmemiş kartların listesi ile güncelle
 
-        // Kart seçimlerini temizleme ve UI güncelleme gibi işlemleri de burada yapabilirsiniz.
+        playerCards.playerCards = remainingCards; // playerCards listesini, seçilmemiş kartların listesi ile güncelle
         UpdateCardDisplay();  // UI güncelleme fonksiyonunu çağır
     }
 

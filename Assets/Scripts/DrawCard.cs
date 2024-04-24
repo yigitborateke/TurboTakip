@@ -6,17 +6,15 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class DrawCard : MonoBehaviour, IPointerDownHandler
+public class DrawCard : MonoBehaviour
 {
     public CardCollection cardCollection;
     public PlayerCards pCards;
-    public GameObject cardPanel;
     private HashSet<int> selectedCardIndices = new HashSet<int>();
     public CardManager cardManager;
     public TextMeshProUGUI messageDisplay;
-    public void OnPointerDown(PointerEventData eventData)
+    public void DrawOneCard()
     {
-        
         if (selectedCardIndices.Count >= cardCollection.cards.Count)
         {
             messageDisplay.text = "Kart kalmadı!!";
@@ -35,8 +33,13 @@ public class DrawCard : MonoBehaviour, IPointerDownHandler
             pCards.AddCardToPlayer(cardCollection.cards[randomCardIndex]);
             if (cardManager != null)
             {
-                cardManager.UpdateCardDisplay(); 
+                cardManager.UpdateCardDisplay();
             }
+            messageDisplay.text = "Bir kart çekildi: " + cardCollection.cards[randomCardIndex].cardName;
+        }
+        else
+        {
+            DrawOneCard(); // Recursive retry if randomly selected card is already drawn.
         }
     }
 

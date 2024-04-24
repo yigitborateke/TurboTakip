@@ -648,7 +648,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 87, y: 40}
-  m_SizeDelta: {x: 200, y: 60}
+  m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534534131
 MonoBehaviour:
@@ -1588,6 +1588,8 @@ MonoBehaviour:
   - {fileID: 1932615199}
   - {fileID: 108480021}
   playButton: {fileID: 617268630}
+  fuelManager: {fileID: 2069738069}
+  cardSelects: []
 --- !u!4 &1463372430
 Transform:
   m_ObjectHideFlags: 0
@@ -2112,9 +2114,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1463132793}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 30
+  m_MaxValue: 50
   m_WholeNumbers: 0
-  m_Value: 30
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2132,3 +2134,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fuelSlider: {fileID: 2069738068}
   warningMessage: {fileID: 418212458}
+  fuelText: {fileID: 534534131}
