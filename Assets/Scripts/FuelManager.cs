@@ -37,7 +37,7 @@ public class FuelManager : MonoBehaviour
         }
         else
         {
-            ShowWarning("Benzininiz yok o yüzden bu kartı kullanamazsınız"); // Yetersiz yakıt uyarısı
+            ShowWarning("Yeterli benzininiz yok!!"); // Yetersiz yakıt uyarısı
             return false;
         }
     }

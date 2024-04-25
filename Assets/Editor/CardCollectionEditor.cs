@@ -10,19 +10,17 @@ public class CardCollectionEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        // Target nesneyi CardCollection tipinde al
         CardCollection database = (CardCollection)target;
 
         if (GUILayout.Button("Add New Card"))
         {
-            Card newCard = new Card(); // Yeni bir kart nesnesi oluştur
+            Card newCard = new Card(); 
             database.cards.Add(newCard);
-            EditorUtility.SetDirty(database); // Değişiklikleri kaydet
+            EditorUtility.SetDirty(database);
         }
 
         Card cardToRemove = null;
 
-        // Her bir kart için düzenleme UI'ları oluştur
         for (int i = 0; i < database.cards.Count; i++)
         {
             EditorGUILayout.BeginVertical(GUI.skin.box);
