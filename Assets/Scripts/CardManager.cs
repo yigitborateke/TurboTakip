@@ -75,10 +75,9 @@ public class CardManager : MonoBehaviour
                 if (cardSelect != null)
                 {
                     cardSelect.isSelected = false; // Seçimi kaldır
-                    cardSelect.GetComponent<Image>().color = Color.white; // Renk ayarı
+                    cardSelect.GetComponent<Image>().color = Color.white;
                 }
             }
-            // Hata mesajı veya uyarı gösterebilirsiniz.
         }
 
     }
