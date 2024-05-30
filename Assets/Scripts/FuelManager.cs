@@ -1,54 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using UnityEngine.UI; // UI bileşenleri için gerekli
+using TMPro; // Eğer TextMeshPro kullanıyorsanız gerekli
 
 public class FuelManager : MonoBehaviour
 {
-    public Slider fuelSlider; // Benzin slider'ı
-    public TextMeshProUGUI warningMessage; // Uyarı mesajı için TextMeshPro elementi
+    public Slider fuelSlider;
     public TextMeshProUGUI fuelText;
-    private void Start()
+    public int initialFuel = 50;
+
+    void Start()
     {
-        InitializeFuel(50); // Başlangıç yakıt miktarını ayarla
+        InitializeFuel(initialFuel);
     }
-    private void Update()
+
+    public void InitializeFuel(int fuelAmount)
     {
+        fuelSlider.maxValue = fuelAmount;
+        fuelSlider.value = fuelAmount;
         UpdateFuelText();
     }
 
-    // Yakıtı başlangıç değeri ile başlat
-    public void InitializeFuel(int initialFuel)
+    public bool ConsumeFuel(int amount)
     {
-        fuelSlider.maxValue = initialFuel;
-        fuelSlider.value = initialFuel;
-        warningMessage.text = ""; // Başlangıçta uyarı mesajını temizle
-    }
-
-    // Verilen maliyeti yakıttan düş
-    public bool ConsumeFuel(int fuelCost)
-    {
-        if (fuelSlider.value >= fuelCost)
+        if (fuelSlider.value >= amount)
         {
-            fuelSlider.value -= fuelCost; // Yakıtı azalt
-            warningMessage.text = ""; // Herhangi bir uyarı mesajını temizle
+            fuelSlider.value -= amount;
+            UpdateFuelText();
             return true;
         }
         else
         {
-            ShowWarning("Yeterli benzininiz yok!!"); // Yetersiz yakıt uyarısı
+            Debug.Log("Not enough fuel");
             return false;
         }
     }
 
-    // Uyarı mesajı göster
-    private void ShowWarning(string message)
+    public int GetCurrentFuel()
     {
-        warningMessage.text = message;
+        return (int)fuelSlider.value;
     }
+
     void UpdateFuelText()
     {
-        fuelText.text = "Fuel: " + fuelSlider.value.ToString("F0"); // Değeri yuvarlak sayı olarak gösterir
+        if (fuelText != null)
+        {
+            fuelText.text = "Fuel: " + fuelSlider.value.ToString("F0");
+        }
     }
 }
