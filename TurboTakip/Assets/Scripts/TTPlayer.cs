@@ -59,34 +59,10 @@ public class TTPlayer : MonoBehaviour
         if (_photonView.IsMine)
         {
             _myPlayerNo = PhotonNetwork.PlayerList.Length - 1;
-            
-            Debug.Log("myplayerno " + _myPlayerNo);
-            Debug.Log("PhotonNetwork.PlayerList.Length "+ PhotonNetwork.PlayerList.Length);
         }
         if (PhotonNetwork.PlayerList.Length == OnStartPlayerCount)
         {
             StartGame();
-        }
-    }
-
-    private void Update()
-    {
-        if (_photonView.IsMine)
-        {
-            if (_myTurn && _isMoving == false)
-            {
-                StartCoroutine(Move());
-            }
-        }
-    }
-
-    private void MyTurn()
-    {
-        _myTurn = true;
-        ChangeButtonActiveness(true);
-        if (_showYourTurnTextAnim != null)
-        {
-            _showYourTurnTextAnim.SetTrigger("showYourTurn");
         }
     }
 
@@ -99,6 +75,27 @@ public class TTPlayer : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             MyTurn();
+        }
+    }
+
+    private void Update()
+    {
+        // if (_photonView.IsMine)
+        // {
+        //     if (_myTurn && _isMoving == false)
+        //     {
+        //         StartCoroutine(Move());
+        //     }
+        // }
+    }
+
+    private void MyTurn()
+    {
+        _myTurn = true;
+        ChangeButtonActiveness(true);
+        if (_showYourTurnTextAnim != null)
+        {
+            _showYourTurnTextAnim.SetTrigger("showYourTurn");
         }
     }
 
@@ -155,18 +152,23 @@ public class TTPlayer : MonoBehaviour
     
     private void Pass()
     {
-        _currentPlayerNo++;
-        _currentPlayerNo %= OnStartPlayerCount;
-        Debug.Log("nextPlayNO" + _currentPlayerNo);
-        ChangeButtonActiveness(false);
-        
-        _photonView.RPC("RPC_PassTurnToNextPlayer", RpcTarget.Others, _currentPlayerNo);
-
-        return;
         if (_photonView.IsMine)
         {
             steps = 1;
         }
+
+        _currentPlayerNo++;
+        _currentPlayerNo %= OnStartPlayerCount;
+        Debug.Log("nextPlayNO" + _currentPlayerNo);
+        ChangeButtonActiveness(false);
+        if (_photonView.IsMine)
+        {
+            if (_isMoving == false)
+            {
+                StartCoroutine(Move());
+            }
+        }
+        _photonView.RPC("RPC_PassTurnToNextPlayer", RpcTarget.Others, _currentPlayerNo);
     }
 
     private void PlayCard()
@@ -180,7 +182,13 @@ public class TTPlayer : MonoBehaviour
             //play other type of card
            
             steps = Random.Range(0, 7);
-            
+            if (_photonView.IsMine)
+            {
+                if (_isMoving == false)
+                {
+                    StartCoroutine(Move());
+                }
+            }
         }
     }
 

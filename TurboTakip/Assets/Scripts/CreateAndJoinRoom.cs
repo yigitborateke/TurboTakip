@@ -6,17 +6,16 @@ using UnityEngine;
 
 public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
 {
-    public TMP_InputField CreateInput;
-    public TMP_InputField JoinInput;
+    public TMP_InputField RoomNameInput;
 
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(CreateInput.text);
+        PhotonNetwork.CreateRoom(RoomNameInput.text);
     }
 
     public void JoinRoom()
     {
-        PhotonNetwork.JoinRoom(JoinInput.text);
+        PhotonNetwork.JoinRoom(RoomNameInput.text);
     }
 
     public override void OnJoinedRoom()
