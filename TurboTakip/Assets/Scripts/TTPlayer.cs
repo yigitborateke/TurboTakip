@@ -17,6 +17,7 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
     private Button _passButton;
     private Button _playCardButton;
     private Button _drawCardButton;
+    private Button _tradeButton;
     private GameObject _waiting4OthersText;
     private Animator _showYourTurnTextAnim;
     private TextMeshProUGUI _messageDisplay; // UI'da mesaj göstermek için Text bileşeni
@@ -85,6 +86,12 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
         if (_playCardButton != null)
         {
             _playCardButton.onClick.AddListener(PlayCard);
+        }
+
+        _tradeButton = GameObject.Find("tradeButton").GetComponent<Button>();
+        if (_tradeButton != null)
+        {
+            _tradeButton.onClick.AddListener(TradeCards);
         }
 
         _drawCardButton = GameObject.Find("Deck").GetComponent<Button>();
@@ -285,6 +292,7 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
         _passButton.interactable = status;
         _playCardButton.interactable = status;
         _drawCardButton.interactable = status;
+        _tradeButton.interactable = status;
     }
 
     private void PassTurn()
@@ -517,6 +525,41 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
             }
             _steps = movementCount;
             StartCoroutine(Move());
+        }
+    }
+
+    private void TradeCards()
+    {
+        if (_photonView)
+        {
+            List<int> selectedCardIndices = new List<int>();
+            List<CardCollection.Card> remainingCards = new List<CardCollection.Card>();
+            for (int i = 0; i < _cardSlots.Length; i++)
+            {
+                CardSelect cardSelect = _cardSlots[i].GetComponent<CardSelect>();
+                if (cardSelect != null)
+                {
+                    if (cardSelect.isSelected)
+                    {
+                        selectedCardIndices.Add(i); // Seçilen kartın indeksini ekle
+                        cardSelect.isSelected = false; // Kartın seçimini sıfırla
+                        cardSelect.GetComponent<Image>().color = Color.white; // Varsayılan renge geri dön
+                    }
+                    else if(i < playerCards.Count)
+                    {
+                        remainingCards.Add(playerCards[i]); // Geriye kalan kartları listeye ekle
+                    }
+                }
+            }
+
+            currentFuel += selectedCardIndices.Count;
+            if (currentFuel > 50)
+            {
+                currentFuel = 50;
+            }
+            playerCards = remainingCards;
+            UpdateFuelText(); // Kart görünümünü güncelle 
+            UpdateCardDisplay();
         }
     }
     
