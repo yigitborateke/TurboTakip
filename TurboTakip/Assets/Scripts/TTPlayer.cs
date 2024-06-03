@@ -213,8 +213,17 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
                     yield break;
                 }
             }
+            if (_trackPosition == _currentRaceTrack.childNodeList.Count)
+            {
+                StartCoroutine(ShowMessageForSeconds("Oyunu kazandın! Tebriklerrrr!", 999));
+                _steps = 0;
+                ChangeButtonActiveness(false);
+                _photonView.RPC("GameFinished", RpcTarget.Others);
+            }
+            
             Vector3 nextPos = _currentRaceTrack.childNodeList[_trackPosition].position;
-            //transform.LookAt(nextPos);
+            transform.LookAt(nextPos);
+            transform.rotation = Quaternion.Inverse(transform.rotation);
             _audioSource.Play();
             while (MoveToNextNode(nextPos))
             {
@@ -647,6 +656,7 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
                 _cardSlots[i].SetActive(false);
             }
         }
+        
     }
     private void InitializeFuel(int initialFuelAmount)
     {
