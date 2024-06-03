@@ -13,5 +13,10 @@ public class MainMenuManager : MonoBehaviour
     public void OnExitClicked()
     {
         Application.Quit();
+        
+#if UNITY_EDITOR
+        // Stop playing the scene
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

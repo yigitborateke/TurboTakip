@@ -1,0 +1,539 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46409a20990cb514095064eff582c45c, type: 3}
+  m_Name: CardCollection
+  m_EditorClassIdentifier: 
+  cards:
+  - cardName: "Ilerleme (2 Kare) Kart\u0131"
+    fuelCost: 2
+    movement: 2
+    description: "2 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: f4f8ccb1d5bd1534caef014fd89f7b58, type: 3}
+    type: 0
+  - cardName: "Ilerleme (2 Kare) Kart\u0131"
+    fuelCost: 2
+    movement: 2
+    description: "2 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: f4f8ccb1d5bd1534caef014fd89f7b58, type: 3}
+    type: 0
+  - cardName: "Ilerleme (2 Kare) Kart\u0131"
+    fuelCost: 2
+    movement: 2
+    description: "2 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: f4f8ccb1d5bd1534caef014fd89f7b58, type: 3}
+    type: 0
+  - cardName: "Ilerleme (2 Kare) Kart\u0131"
+    fuelCost: 2
+    movement: 2
+    description: "2 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: f4f8ccb1d5bd1534caef014fd89f7b58, type: 3}
+    type: 0
+  - cardName: "Ilerleme (2 Kare) Kart\u0131"
+    fuelCost: 2
+    movement: 2
+    description: "2 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: f4f8ccb1d5bd1534caef014fd89f7b58, type: 3}
+    type: 0
+  - cardName: "Ilerleme (2 Kare) Kart\u0131"
+    fuelCost: 2
+    movement: 2
+    description: "2 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: f4f8ccb1d5bd1534caef014fd89f7b58, type: 3}
+    type: 0
+  - cardName: "Ilerleme (3 Kare) Kart\u0131"
+    fuelCost: 3
+    movement: 3
+    description: "3 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 327c205862e4aee49b9f0b8007d558ff, type: 3}
+    type: 0
+  - cardName: "Ilerleme (3 Kare) Kart\u0131"
+    fuelCost: 3
+    movement: 3
+    description: "3 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 327c205862e4aee49b9f0b8007d558ff, type: 3}
+    type: 0
+  - cardName: "Ilerleme (3 Kare) Kart\u0131"
+    fuelCost: 3
+    movement: 3
+    description: "3 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 327c205862e4aee49b9f0b8007d558ff, type: 3}
+    type: 0
+  - cardName: "Ilerleme (3 Kare) Kart\u0131"
+    fuelCost: 3
+    movement: 3
+    description: "3 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 327c205862e4aee49b9f0b8007d558ff, type: 3}
+    type: 0
+  - cardName: "Ilerleme (3 Kare) Kart\u0131"
+    fuelCost: 3
+    movement: 3
+    description: "3 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 327c205862e4aee49b9f0b8007d558ff, type: 3}
+    type: 0
+  - cardName: "Ilerleme (3 Kare) Kart\u0131"
+    fuelCost: 3
+    movement: 3
+    description: "3 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 327c205862e4aee49b9f0b8007d558ff, type: 3}
+    type: 0
+  - cardName: "Ilerleme (4 Kare) Kart\u0131"
+    fuelCost: 4
+    movement: 4
+    description: "4 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: da0aeb38b3ba47a4ea932c3fc5a78a6b, type: 3}
+    type: 0
+  - cardName: "Ilerleme (4 Kare) Kart\u0131"
+    fuelCost: 4
+    movement: 4
+    description: "4 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: da0aeb38b3ba47a4ea932c3fc5a78a6b, type: 3}
+    type: 0
+  - cardName: "Ilerleme (4 Kare) Kart\u0131"
+    fuelCost: 4
+    movement: 4
+    description: "4 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: da0aeb38b3ba47a4ea932c3fc5a78a6b, type: 3}
+    type: 0
+  - cardName: "Ilerleme (4 Kare) Kart\u0131"
+    fuelCost: 4
+    movement: 4
+    description: "4 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: da0aeb38b3ba47a4ea932c3fc5a78a6b, type: 3}
+    type: 0
+  - cardName: "Ilerleme (4 Kare) Kart\u0131"
+    fuelCost: 4
+    movement: 4
+    description: "4 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: da0aeb38b3ba47a4ea932c3fc5a78a6b, type: 3}
+    type: 0
+  - cardName: "Ilerleme (4 Kare) Kart\u0131"
+    fuelCost: 4
+    movement: 4
+    description: "4 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: da0aeb38b3ba47a4ea932c3fc5a78a6b, type: 3}
+    type: 0
+  - cardName: "Ilerleme (5 Kare) Kart\u0131"
+    fuelCost: 5
+    movement: 5
+    description: "5 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 7547cd98672f12c47abdc43880798bd5, type: 3}
+    type: 0
+  - cardName: "Ilerleme (5 Kare) Kart\u0131"
+    fuelCost: 5
+    movement: 5
+    description: "5 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 7547cd98672f12c47abdc43880798bd5, type: 3}
+    type: 0
+  - cardName: "Ilerleme (5 Kare) Kart\u0131"
+    fuelCost: 5
+    movement: 5
+    description: "5 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 7547cd98672f12c47abdc43880798bd5, type: 3}
+    type: 0
+  - cardName: "Ilerleme (5 Kare) Kart\u0131"
+    fuelCost: 5
+    movement: 5
+    description: "5 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 7547cd98672f12c47abdc43880798bd5, type: 3}
+    type: 0
+  - cardName: "Ilerleme (5 Kare) Kart\u0131"
+    fuelCost: 5
+    movement: 5
+    description: "5 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 7547cd98672f12c47abdc43880798bd5, type: 3}
+    type: 0
+  - cardName: "Ilerleme (5 Kare) Kart\u0131"
+    fuelCost: 5
+    movement: 5
+    description: "5 Kare \u0130lerle"
+    cardSprite: {fileID: 21300000, guid: 7547cd98672f12c47abdc43880798bd5, type: 3}
+    type: 0
+  - cardName: "H\u0131zlanma Kart\u0131"
+    fuelCost: 10
+    movement: 0
+    description: "An\u0131nda h\u0131zlan\u0131n ve rakibinizin bir ad\u0131m \xF6n\xFCne
+      ge\xE7in "
+    cardSprite: {fileID: 21300000, guid: 2529dd15f1306b84f958c69ec3d78608, type: 3}
+    type: 1
+  - cardName: "H\u0131zlanma Kart\u0131"
+    fuelCost: 10
+    movement: 0
+    description: "An\u0131nda h\u0131zlan\u0131n ve rakibinizin bir ad\u0131m \xF6n\xFCne
+      ge\xE7in "
+    cardSprite: {fileID: 21300000, guid: 2529dd15f1306b84f958c69ec3d78608, type: 3}
+    type: 1
+  - cardName: "H\u0131z Kesici Kart"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin h\u0131z\u0131n\u0131 kesmek i\xE7in yoluna bir engel
+      yerle\u015Ftirin, tam \xFCst\xFCne geldi\u011Finde 1 tur beklesin "
+    cardSprite: {fileID: 21300000, guid: 2263a95cc6a2c874eb9865d67acdba2a, type: 3}
+    type: 2
+  - cardName: "H\u0131z Kesici Kart"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin h\u0131z\u0131n\u0131 kesmek i\xE7in yoluna bir engel
+      yerle\u015Ftirin, tam \xFCst\xFCne geldi\u011Finde 1 tur beklesin "
+    cardSprite: {fileID: 21300000, guid: 2263a95cc6a2c874eb9865d67acdba2a, type: 3}
+    type: 2
+  - cardName: "H\u0131z Kesici Kart"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin h\u0131z\u0131n\u0131 kesmek i\xE7in yoluna bir engel
+      yerle\u015Ftirin, tam \xFCst\xFCne geldi\u011Finde 1 tur beklesin "
+    cardSprite: {fileID: 21300000, guid: 2263a95cc6a2c874eb9865d67acdba2a, type: 3}
+    type: 2
+  - cardName: "H\u0131z Kesici Kart"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin h\u0131z\u0131n\u0131 kesmek i\xE7in yoluna bir engel
+      yerle\u015Ftirin, tam \xFCst\xFCne geldi\u011Finde 1 tur beklesin "
+    cardSprite: {fileID: 21300000, guid: 2263a95cc6a2c874eb9865d67acdba2a, type: 3}
+    type: 2
+  - cardName: "H\u0131z Kesici Kart"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin h\u0131z\u0131n\u0131 kesmek i\xE7in yoluna bir engel
+      yerle\u015Ftirin, tam \xFCst\xFCne geldi\u011Finde 1 tur beklesin "
+    cardSprite: {fileID: 21300000, guid: 2263a95cc6a2c874eb9865d67acdba2a, type: 3}
+    type: 2
+  - cardName: "Bomba Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin yoluna bir bomba yerle\u015Ftirin ve onun bomban\u0131n
+      patlad\u0131\u011F\u0131 yerde kalmas\u0131na neden olun."
+    cardSprite: {fileID: 21300000, guid: be0edd8e929a4b447982b556aed1c411, type: 3}
+    type: 3
+  - cardName: "Bomba Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin yoluna bir bomba yerle\u015Ftirin ve onun bomban\u0131n
+      patlad\u0131\u011F\u0131 yerde kalmas\u0131na neden olun."
+    cardSprite: {fileID: 21300000, guid: be0edd8e929a4b447982b556aed1c411, type: 3}
+    type: 3
+  - cardName: "Bomba Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin yoluna bir bomba yerle\u015Ftirin ve onun bomban\u0131n
+      patlad\u0131\u011F\u0131 yerde kalmas\u0131na neden olun."
+    cardSprite: {fileID: 21300000, guid: be0edd8e929a4b447982b556aed1c411, type: 3}
+    type: 3
+  - cardName: "Bomba Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin yoluna bir bomba yerle\u015Ftirin ve onun bomban\u0131n
+      patlad\u0131\u011F\u0131 yerde kalmas\u0131na neden olun."
+    cardSprite: {fileID: 21300000, guid: be0edd8e929a4b447982b556aed1c411, type: 3}
+    type: 3
+  - cardName: "Bomba Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin yoluna bir bomba yerle\u015Ftirin ve onun bomban\u0131n
+      patlad\u0131\u011F\u0131 yerde kalmas\u0131na neden olun."
+    cardSprite: {fileID: 21300000, guid: be0edd8e929a4b447982b556aed1c411, type: 3}
+    type: 3
+  - cardName: "Kart Kayb\u0131 Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin elindeki rastgele bir kart\u0131n\u0131 kaybetmesini
+      sa\u011Flay\u0131n "
+    cardSprite: {fileID: 21300000, guid: 818916be656764d46947a9b43c7f4701, type: 3}
+    type: 4
+  - cardName: "Kart Kayb\u0131 Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin elindeki rastgele bir kart\u0131n\u0131 kaybetmesini
+      sa\u011Flay\u0131n "
+    cardSprite: {fileID: 21300000, guid: 818916be656764d46947a9b43c7f4701, type: 3}
+    type: 4
+  - cardName: "Kart Kayb\u0131 Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin elindeki rastgele bir kart\u0131n\u0131 kaybetmesini
+      sa\u011Flay\u0131n "
+    cardSprite: {fileID: 21300000, guid: 818916be656764d46947a9b43c7f4701, type: 3}
+    type: 4
+  - cardName: "Kart Kayb\u0131 Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin elindeki rastgele bir kart\u0131n\u0131 kaybetmesini
+      sa\u011Flay\u0131n "
+    cardSprite: {fileID: 21300000, guid: 818916be656764d46947a9b43c7f4701, type: 3}
+    type: 4
+  - cardName: "Kart Kayb\u0131 Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin elindeki rastgele bir kart\u0131n\u0131 kaybetmesini
+      sa\u011Flay\u0131n "
+    cardSprite: {fileID: 21300000, guid: 818916be656764d46947a9b43c7f4701, type: 3}
+    type: 4
+  - cardName: "H\u0131z Kontrol\xFC Kart\u0131"
+    fuelCost: 2
+    movement: 0
+    description: "Rakibinizin bulundu\u011Funuz kareyi ge\xE7mesini engelleyin "
+    cardSprite: {fileID: 21300000, guid: 114c9406201303d4e98d3a708b9dffb6, type: 3}
+    type: 5
+  - cardName: "H\u0131z Kontrol\xFC Kart\u0131"
+    fuelCost: 2
+    movement: 0
+    description: "Rakibinizin bulundu\u011Funuz kareyi ge\xE7mesini engelleyin "
+    cardSprite: {fileID: 21300000, guid: 114c9406201303d4e98d3a708b9dffb6, type: 3}
+    type: 5
+  - cardName: "H\u0131z Kontrol\xFC Kart\u0131"
+    fuelCost: 2
+    movement: 0
+    description: "Rakibinizin bulundu\u011Funuz kareyi ge\xE7mesini engelleyin "
+    cardSprite: {fileID: 21300000, guid: 114c9406201303d4e98d3a708b9dffb6, type: 3}
+    type: 5
+  - cardName: "H\u0131z Kontrol\xFC Kart\u0131"
+    fuelCost: 2
+    movement: 0
+    description: "Rakibinizin bulundu\u011Funuz kareyi ge\xE7mesini engelleyin "
+    cardSprite: {fileID: 21300000, guid: 114c9406201303d4e98d3a708b9dffb6, type: 3}
+    type: 5
+  - cardName: "H\u0131z Kontrol\xFC Kart\u0131"
+    fuelCost: 2
+    movement: 0
+    description: "Rakibinizin bulundu\u011Funuz kareyi ge\xE7mesini engelleyin "
+    cardSprite: {fileID: 21300000, guid: 114c9406201303d4e98d3a708b9dffb6, type: 3}
+    type: 5
+  - cardName: "Koruma Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin size kar\u015F\u0131 kulland\u0131\u011F\u0131 kart\u0131
+      etkisiz hale getir "
+    cardSprite: {fileID: 21300000, guid: 17c14d18437598542967dfa803367cde, type: 3}
+    type: 6
+  - cardName: "Koruma Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin size kar\u015F\u0131 kulland\u0131\u011F\u0131 kart\u0131
+      etkisiz hale getir "
+    cardSprite: {fileID: 21300000, guid: 17c14d18437598542967dfa803367cde, type: 3}
+    type: 6
+  - cardName: "Koruma Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin size kar\u015F\u0131 kulland\u0131\u011F\u0131 kart\u0131
+      etkisiz hale getir "
+    cardSprite: {fileID: 21300000, guid: 17c14d18437598542967dfa803367cde, type: 3}
+    type: 6
+  - cardName: "Koruma Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin size kar\u015F\u0131 kulland\u0131\u011F\u0131 kart\u0131
+      etkisiz hale getir "
+    cardSprite: {fileID: 21300000, guid: 17c14d18437598542967dfa803367cde, type: 3}
+    type: 6
+  - cardName: "Koruma Kart\u0131"
+    fuelCost: 4
+    movement: 0
+    description: "Rakibinizin size kar\u015F\u0131 kulland\u0131\u011F\u0131 kart\u0131
+      etkisiz hale getir "
+    cardSprite: {fileID: 21300000, guid: 17c14d18437598542967dfa803367cde, type: 3}
+    type: 6
+  - cardName: "Verimlilik Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\u0130lerleme kart\u0131n\u0131z\u0131 beraber kullanarak benzin
+      harcamadan ilerleyin"
+    cardSprite: {fileID: 21300000, guid: 23228187d5a9b2b4d8e0242d81a323d1, type: 3}
+    type: 7
+  - cardName: "Verimlilik Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\u0130lerleme kart\u0131n\u0131z\u0131 beraber kullanarak benzin
+      harcamadan ilerleyin"
+    cardSprite: {fileID: 21300000, guid: 23228187d5a9b2b4d8e0242d81a323d1, type: 3}
+    type: 7
+  - cardName: "Verimlilik Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\u0130lerleme kart\u0131n\u0131z\u0131 beraber kullanarak benzin
+      harcamadan ilerleyin"
+    cardSprite: {fileID: 21300000, guid: 23228187d5a9b2b4d8e0242d81a323d1, type: 3}
+    type: 7
+  - cardName: "Verimlilik Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\u0130lerleme kart\u0131n\u0131z\u0131 beraber kullanarak benzin
+      harcamadan ilerleyin"
+    cardSprite: {fileID: 21300000, guid: 23228187d5a9b2b4d8e0242d81a323d1, type: 3}
+    type: 7
+  - cardName: "Verimlilik Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\u0130lerleme kart\u0131n\u0131z\u0131 beraber kullanarak benzin
+      harcamadan ilerleyin"
+    cardSprite: {fileID: 21300000, guid: 23228187d5a9b2b4d8e0242d81a323d1, type: 3}
+    type: 7
+  - cardName: "Yanl\u0131\u015F Y\xF6n Kart\u0131"
+    fuelCost: 8
+    movement: 0
+    description: "Rakibinizin rotas\u0131n\u0131 kar\u0131\u015Ft\u0131rarak bir
+      sonraki turdaki hamlesini tersine \xE7evirin."
+    cardSprite: {fileID: 21300000, guid: cc68516d4dc59c74c952392a5ecfdaec, type: 3}
+    type: 8
+  - cardName: "Motor Ar\u0131za Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ekti\u011Finiz tur motor ar\u0131zas\u0131ndan dolay\u0131
+      oldu\u011Funuz yerde kal\u0131n."
+    cardSprite: {fileID: 21300000, guid: 0cb73aeda079a0840b5d505bcd7710ed, type: 3}
+    type: 9
+  - cardName: "Motor Ar\u0131za Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ekti\u011Finiz tur motor ar\u0131zas\u0131ndan dolay\u0131
+      oldu\u011Funuz yerde kal\u0131n."
+    cardSprite: {fileID: 21300000, guid: 0cb73aeda079a0840b5d505bcd7710ed, type: 3}
+    type: 9
+  - cardName: "Motor Ar\u0131za Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ekti\u011Finiz tur motor ar\u0131zas\u0131ndan dolay\u0131
+      oldu\u011Funuz yerde kal\u0131n."
+    cardSprite: {fileID: 21300000, guid: 0cb73aeda079a0840b5d505bcd7710ed, type: 3}
+    type: 9
+  - cardName: "Motor Ar\u0131za Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ekti\u011Finiz tur motor ar\u0131zas\u0131ndan dolay\u0131
+      oldu\u011Funuz yerde kal\u0131n."
+    cardSprite: {fileID: 21300000, guid: 0cb73aeda079a0840b5d505bcd7710ed, type: 3}
+    type: 9
+  - cardName: "Motor Ar\u0131za Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ekti\u011Finiz tur motor ar\u0131zas\u0131ndan dolay\u0131
+      oldu\u011Funuz yerde kal\u0131n."
+    cardSprite: {fileID: 21300000, guid: 0cb73aeda079a0840b5d505bcd7710ed, type: 3}
+    type: 9
+  - cardName: "Motor Ar\u0131za Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ekti\u011Finiz tur motor ar\u0131zas\u0131ndan dolay\u0131
+      oldu\u011Funuz yerde kal\u0131n."
+    cardSprite: {fileID: 21300000, guid: 0cb73aeda079a0840b5d505bcd7710ed, type: 3}
+    type: 9
+  - cardName: "Motor Ar\u0131za Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ekti\u011Finiz tur motor ar\u0131zas\u0131ndan dolay\u0131
+      oldu\u011Funuz yerde kal\u0131n."
+    cardSprite: {fileID: 21300000, guid: 0cb73aeda079a0840b5d505bcd7710ed, type: 3}
+    type: 9
+  - cardName: "Motor Ar\u0131za Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ekti\u011Finiz tur motor ar\u0131zas\u0131ndan dolay\u0131
+      oldu\u011Funuz yerde kal\u0131n."
+    cardSprite: {fileID: 21300000, guid: 0cb73aeda079a0840b5d505bcd7710ed, type: 3}
+    type: 9
+  - cardName: "Motor Ar\u0131za Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ekti\u011Finiz tur motor ar\u0131zas\u0131ndan dolay\u0131
+      oldu\u011Funuz yerde kal\u0131n."
+    cardSprite: {fileID: 21300000, guid: 0cb73aeda079a0840b5d505bcd7710ed, type: 3}
+    type: 9
+  - cardName: "Motor Ar\u0131za Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ekti\u011Finiz tur motor ar\u0131zas\u0131ndan dolay\u0131
+      oldu\u011Funuz yerde kal\u0131n."
+    cardSprite: {fileID: 21300000, guid: 0cb73aeda079a0840b5d505bcd7710ed, type: 3}
+    type: 9
+  - cardName: "Lastik Patlama Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ektikten sonraki 3 tur i\xE7inde kullanarak oldu\u011Funuz
+      yerde kal\u0131n"
+    cardSprite: {fileID: 21300000, guid: c8eafc8514aa8a44790cf253a1a59a95, type: 3}
+    type: 10
+  - cardName: "Lastik Patlama Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ektikten sonraki 3 tur i\xE7inde kullanarak oldu\u011Funuz
+      yerde kal\u0131n"
+    cardSprite: {fileID: 21300000, guid: c8eafc8514aa8a44790cf253a1a59a95, type: 3}
+    type: 10
+  - cardName: "Lastik Patlama Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ektikten sonraki 3 tur i\xE7inde kullanarak oldu\u011Funuz
+      yerde kal\u0131n"
+    cardSprite: {fileID: 21300000, guid: c8eafc8514aa8a44790cf253a1a59a95, type: 3}
+    type: 10
+  - cardName: "Lastik Patlama Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ektikten sonraki 3 tur i\xE7inde kullanarak oldu\u011Funuz
+      yerde kal\u0131n"
+    cardSprite: {fileID: 21300000, guid: c8eafc8514aa8a44790cf253a1a59a95, type: 3}
+    type: 10
+  - cardName: "Lastik Patlama Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ektikten sonraki 3 tur i\xE7inde kullanarak oldu\u011Funuz
+      yerde kal\u0131n"
+    cardSprite: {fileID: 21300000, guid: c8eafc8514aa8a44790cf253a1a59a95, type: 3}
+    type: 10
+  - cardName: "Lastik Patlama Kart\u0131"
+    fuelCost: 0
+    movement: 0
+    description: "\xC7ektikten sonraki 3 tur i\xE7inde kullanarak oldu\u011Funuz
+      yerde kal\u0131n"
+    cardSprite: {fileID: 21300000, guid: c8eafc8514aa8a44790cf253a1a59a95, type: 3}
+    type: 10
+  - cardName: "007 Kart\u0131"
+    fuelCost: 16
+    movement: 0
+    description: "Rakibinize arkadan ate\u015F edin. \xD6n\xFCn\xFCzdeki 10 kare
+      i\xE7indeyse rakibinizi vurun ve 2 tur hareketsiz kalmas\u0131n\u0131 sa\u011Flay\u0131n."
+    cardSprite: {fileID: 21300000, guid: f41107e9bfa37eb4c9637d7e2e0dcdad, type: 3}
+    type: 11
+  - cardName: "Katlama Kart\u0131"
+    fuelCost: 2
+    movement: 0
+    description: "\u0130stedi\u011Finiz hareket kart\u0131n\u0131 maliyeti de\u011Fi\u015Fmeksizin
+      2 kat\u0131 ilerletin"
+    cardSprite: {fileID: 21300000, guid: b4dc26900fd2bae4d992d255d88244bd, type: 3}
+    type: 12
+  - cardName: "Katlama Kart\u0131"
+    fuelCost: 2
+    movement: 0
+    description: "\u0130stedi\u011Finiz hareket kart\u0131n\u0131 maliyeti de\u011Fi\u015Fmeksizin
+      2 kat\u0131 ilerletin"
+    cardSprite: {fileID: 21300000, guid: b4dc26900fd2bae4d992d255d88244bd, type: 3}
+    type: 12
+  - cardName: "Katlama Kart\u0131"
+    fuelCost: 2
+    movement: 0
+    description: "\u0130stedi\u011Finiz hareket kart\u0131n\u0131 maliyeti de\u011Fi\u015Fmeksizin
+      2 kat\u0131 ilerletin"
+    cardSprite: {fileID: 21300000, guid: b4dc26900fd2bae4d992d255d88244bd, type: 3}
+    type: 12
+  - cardName: "Katlama Kart\u0131"
+    fuelCost: 2
+    movement: 0
+    description: "\u0130stedi\u011Finiz hareket kart\u0131n\u0131 maliyeti de\u011Fi\u015Fmeksizin
+      2 kat\u0131 ilerletin"
+    cardSprite: {fileID: 21300000, guid: b4dc26900fd2bae4d992d255d88244bd, type: 3}
+    type: 12
+  - cardName: "Katlama Kart\u0131"
+    fuelCost: 2
+    movement: 0
+    description: "\u0130stedi\u011Finiz hareket kart\u0131n\u0131 maliyeti de\u011Fi\u015Fmeksizin
+      2 kat\u0131 ilerletin"
+    cardSprite: {fileID: 21300000, guid: b4dc26900fd2bae4d992d255d88244bd, type: 3}
+    type: 12

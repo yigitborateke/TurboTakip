@@ -40,6 +40,11 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - RPC_PassTurnToNextPlayer
+  - ApplyCardEffects
+  - RemoveCardFromPool
+  - DestroyRandomCard
+  - Played007Card
+  - GameFinished
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
