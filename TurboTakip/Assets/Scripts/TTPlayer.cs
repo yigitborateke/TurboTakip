@@ -9,7 +9,7 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-public class TTPlayer : MonoBehaviour, IOnEventCallback
+public class TTPlayer : MonoBehaviourPun, IOnEventCallback
 {
     private PhotonView _photonView;
 
@@ -30,7 +30,6 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
     private RaceTrack _currentRaceTrack;
     private int _trackPosition = 0;
     private bool _isMoving;
-    private int _blockedRounds = 0;
 
     //turn based
     private const int OnStartPlayerCount = 2;
@@ -58,6 +57,7 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
     
     //SoundFX
     private AudioSource _audioSource;
+    private AudioSource _bombSound;
     
     //EventCodes
     private const byte BombCreated = 2;
@@ -107,7 +107,9 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
         _cardSlots[3] = GameObject.Find("Card-4");
         _cardSlots[4] = GameObject.Find("Card-5");
         _cardsUI.GetComponent<Canvas>().enabled = false;
-        _audioSource = GetComponent<AudioSource>(); 
+        
+        _audioSource = GetComponent<AudioSource>();
+        _bombSound = GameObject.Find("bombSound").GetComponent<AudioSource>();
         ChangeButtonActiveness(false);
 
         _cardPool = GameObject.Find("CardPool").GetComponent<CardPool>();
@@ -172,18 +174,7 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
         _currentPlayerNo = currentPlayerNo;
         if (_currentPlayerNo == PhotonNetwork.LocalPlayer.ActorNumber)
         {
-            if (_blockedRounds != 0)
-            {
-                Debug.Log("Blocked Rounds for " + _blockedRounds);
-                _blockedRounds--;
-                
-                PassTurn();
-            
-            }
-            else
-            {
-                MyTurn();
-            }
+            MyTurn();
         }
         
     }
@@ -202,6 +193,7 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
             if (_steps > 0)
             {
                 _trackPosition++;
+
             }
             else
             {
@@ -231,6 +223,11 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
             }
             
             yield return new WaitForSeconds(0.25f);
+            if(_currentRaceTrack.IsObstacleOnPath(_trackPosition))
+            {
+                _steps = 0;
+            }
+            
             if (_trackPosition == _currentRaceTrack.childNodeList.Count)
             {
                 StartCoroutine(ShowMessageForSeconds("Oyunu kazandın! Tebriklerrrr!", 999));
@@ -240,48 +237,23 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
             }
             else
             {
-                _blockedRounds = _currentRaceTrack.IsObstacleOnPath(_trackPosition);
-                if (_blockedRounds > 0)//sirani engelleyecek bir durumu var
+                if (_steps > 0)
                 {
-                    if (_hasShield)
-                    {
-                        _hasShield = false;
-                        if (_steps > 0)
-                        {
-                            _steps--;
-                        
-                        }
-                        else if(_steps < 0)
-                        {
-                            _steps++;
-                        }
-                    }
-                    else
-                    {
-                        _steps = 0;
-                        _blockedRounds--;
-
-                    }
+                    _steps--;
                 }
-                else
+                else if(_steps < 0)
                 {
-                    if (_steps > 0)
-                    {
-                        _steps--;
-                    }
-                    else if(_steps < 0)
-                    {
-                        _steps++;
-                    }
+                    _steps++;
                 }
+                
             }
             Hashtable customPlayerProperties = new Hashtable
             {
                 { "trackPosition", _trackPosition }
             };
             PhotonNetwork.LocalPlayer.SetCustomProperties(customPlayerProperties);
-            _isMoving = false;
         }
+        _isMoving = false;
     }
     
     bool MoveToNextNode(Vector3 goal)
@@ -308,16 +280,14 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
     {
         if (_photonView.IsMine)
         {
-            if (_hasPlayedCardsThisTurn == false && _engineFailure == false && _blockedRounds == 0)
+            if (_hasPlayedCardsThisTurn == false && _engineFailure == false )
             {
                 _steps = 1;
-                if (_photonView.IsMine)
-                {
                     if (_isMoving == false)
                     {
                         StartCoroutine(Move());
                     }
-                }
+                
             }
             else
             {
@@ -331,7 +301,7 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
 
             int nextId = PhotonNetwork.LocalPlayer.GetNext().ActorNumber;
             ChangeButtonActiveness(false);
-            _photonView.RPC("RPC_PassTurnToNextPlayer", RpcTarget.All, nextId);
+            this._photonView.RPC("RPC_PassTurnToNextPlayer", RpcTarget.All, nextId);
         }
 
     }
@@ -470,6 +440,10 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
                             RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
                             PhotonNetwork.RaiseEvent(Card007Event, content, raiseEventOptions, SendOptions.SendReliable);
                         }
+                        else
+                        {
+                            StartCoroutine(ShowMessageForSeconds("Rakibini vuramadin!", 2));
+                        }
                     }
                 }
                 else if (playedCard.type == CardCollection.Card.CardType.TireBlowout)
@@ -491,11 +465,6 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
                     PhotonNetwork.RaiseEvent(SpeedControllerEvent, content, raiseEventOptions, SendOptions.SendReliable);
                 }
             }
-        }
-
-        if (playedCardNames.Count != 0)
-        {
-            _photonView.RPC("ApplyCardEffects", RpcTarget.Others, playedCardNames.ToArray(), PhotonNetwork.LocalPlayer.ActorNumber);
         }
 
         if (movementCount > 0)
@@ -571,36 +540,6 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
             UpdateCardDisplayWithRemaining(remainingCards);
         }
     }
-    
-    [PunRPC]
-    public void ApplyCardEffects(int[] cardTypes, int actorNumber)
-    {
-        // Kart etkilerini uygula ve UI güncellemesi yap
-        // if (PhotonNetwork.LocalPlayer.ActorNumber != actorNumber)
-        // {
-        //     foreach (int cardType in cardTypes)
-        //     {
-        //         if (cardType == (int)CardCollection.Card.CardType.Bomb)
-        //         {
-        //             RaceTrack.Obstacle obs;
-        //             obs.Type = (int)CardCollection.Card.CardType.Bomb;
-        //             obs.BlockingRounds = 1;
-        //             obs.OwnerID = PhotonNetwork.LocalPlayer.ActorNumber;
-        //             obs.NodePosition = _trackPosition;
-        //             _currentRaceTrack.nodesWithObstacles.Add(obs);
-        //         }
-        //         else if (cardType == (int)CardCollection.Card.CardType.SpeedBlocker)
-        //         {
-        //             RaceTrack.Obstacle obs;
-        //             obs.Type = (int)CardCollection.Card.CardType.SpeedBlocker;
-        //             obs.BlockingRounds = 1;
-        //             obs.OwnerID = PhotonNetwork.LocalPlayer.ActorNumber;
-        //             obs.NodePosition = _trackPosition;
-        //             _currentRaceTrack.nodesWithObstacles.Add(obs);
-        //         }
-        //     }
-        // }
-    }
 
     [PunRPC]
     public void DestroyRandomCard(int nextPlayerId)
@@ -619,12 +558,6 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
                 ShowMessageForSeconds("Rakip oyuncu bir random kartını yok etti!", 2);
             }
         }
-    }
-    
-    public void Played007Card()
-    {
-        _blockedRounds = 2;
-        StartCoroutine(ShowMessageForSeconds("Diğer Oyuncu 007 kartını oynadı ve sizi vurdu. " + _blockedRounds + " tur bekleyin.", 2));
     }
     
     private int CalculateFuelCostOfSelectedCards()
@@ -802,7 +735,7 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
                 {
                     if (go.GetComponent<Bomb>().TrackPosition == trackPosition)
                     {
-
+                        _bombSound.Play();
                         PhotonNetwork.Destroy(go);
                     }
                 }
@@ -838,12 +771,14 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
         }
         else if (eventCode == Card007Event)
         {
+            _bombSound.Play();
             object[] data = (object[])photonEvent.CustomData;
             int nextPlayerID = (int)data[0];
-            if (PhotonNetwork.LocalPlayer.ActorNumber == nextPlayerID)
-            {
-                Played007Card();
-            }
+            // if (PhotonNetwork.LocalPlayer.ActorNumber == nextPlayerID)
+            // {
+            //     _blockedRounds = 2;
+            //     StartCoroutine(ShowMessageForSeconds("Diğer Oyuncu 007 kartını oynadı ve sizi vurdu. " + _blockedRounds + " tur bekleyin.", 2));
+            // }
         }
     }
 

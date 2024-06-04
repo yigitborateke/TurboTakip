@@ -56,25 +56,22 @@ public class RaceTrack : MonoBehaviour
         }
     }
     
-    public int IsObstacleOnPath(int trackPosition)
+    public bool IsObstacleOnPath(int trackPosition)
     {
         foreach (var obstacle in nodesWithObstacles)
         {
             if (trackPosition == obstacle.NodePosition)
             {
                 Debug.Log("bomb in path expolode");
-                // object[] content = new object[] { nodesWithObstacles.IndexOf(obstacle), obstacle.Type, obstacle.NodePosition };
-                // RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
-                // PhotonNetwork.RaiseEvent(bombExploded, content, raiseEventOptions, SendOptions.SendReliable);
                 
                 object[] content = new object[] {trackPosition, obstacle.InstanceID};
                 RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
                 PhotonNetwork.RaiseEvent(bombExploded, content, raiseEventOptions, SendOptions.SendReliable);
 
-                return obstacle.BlockingRounds;
+                return true;
             }
         }
-        return 0;
+        return false;
     }
 
 

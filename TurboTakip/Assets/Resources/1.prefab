@@ -302,6 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d64e2c62556b13429a8e56654c37b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _blockedRounds: 0
+  roundsPassedByBlock: 0
   playerCards: []
   cardSelects: []
   currentFuel: 50
