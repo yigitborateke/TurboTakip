@@ -22,7 +22,7 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
     private Animator _showYourTurnTextAnim;
     private TextMeshProUGUI _messageDisplay; // UI'da mesaj göstermek için Text bileşeni
     private GameObject _cardsUI;
-    private Slider _fuelSlider;
+    //private Slider _fuelSlider;
     private TextMeshProUGUI _fuelText;
     
     //movement
@@ -99,7 +99,7 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
         _showYourTurnTextAnim = GameObject.Find("yourTurnText").GetComponent<Animator>();
         _messageDisplay = GameObject.Find("Message Display").GetComponent<TextMeshProUGUI>();
         _cardsUI = GameObject.Find("CardsCanvas");
-        _fuelSlider = GameObject.Find("Fuel Slider").GetComponent<Slider>();
+        //_fuelSlider = GameObject.Find("Fuel Slider").GetComponent<Slider>();
         _fuelText = GameObject.Find("Fuel Text").GetComponent<TextMeshProUGUI>();
         _cardSlots[0] = GameObject.Find("Card-1");
         _cardSlots[1] = GameObject.Find("Card-2");
@@ -567,8 +567,8 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
                 currentFuel = 50;
             }
             playerCards = remainingCards;
-            UpdateFuelText(); // Kart görünümünü güncelle 
-            UpdateCardDisplay();
+            UpdateFuelTextWithCurrent(currentFuel); // Kart görünümünü güncelle 
+            UpdateCardDisplayWithRemaining(remainingCards);
         }
     }
     
@@ -658,10 +658,31 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
         }
         
     }
+    
+    private void UpdateCardDisplayWithRemaining(List<CardCollection.Card> remaining)
+    {
+        if (_photonView.IsMine)
+        {
+            for (int i = 0; i < _cardSlots.Length; i++)
+            {
+                if (i < remaining.Count)
+                {
+                    Sprite cardSprite = remaining[i].cardSprite;
+                    _cardSlots[i].GetComponent<Image>().sprite = cardSprite;
+                    _cardSlots[i].SetActive(cardSprite != null);
+                }
+                else
+                {
+                    _cardSlots[i].SetActive(false);
+                }
+            }
+        }
+    }
+
     private void InitializeFuel(int initialFuelAmount)
     {
-        _fuelSlider.maxValue = maxFuelAmount;
-        _fuelSlider.value = initialFuelAmount;
+        //_fuelSlider.maxValue = maxFuelAmount;
+        //_fuelSlider.value = initialFuelAmount;
         UpdateFuelText();
     }
 
@@ -670,11 +691,27 @@ public class TTPlayer : MonoBehaviour, IOnEventCallback
         if (_fuelText != null)
         {
             _fuelText.text = "Fuel: " + currentFuel.ToString("F0");
-            _fuelSlider.value = currentFuel;
+            //_fuelSlider.value = currentFuel;
         }
         else
         {
             Debug.LogError("fuel text null");
+        }
+    }
+    
+    void UpdateFuelTextWithCurrent(int current)
+    {
+        if(_photonView.IsMine)
+        {
+            if (_fuelText != null)
+            {
+                _fuelText.text = "Fuel: " + current.ToString("F0");
+                //_fuelSlider.value = currentFuel;
+            }
+            else
+            {
+                Debug.LogError("fuel text null");
+            }
         }
     }
     
